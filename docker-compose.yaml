@@ -4,17 +4,20 @@ services:
   mysqlserver:
     image: mysql/mysql-server
     container_name: mysqlserver
+    env_file:
+      - secrets.env
     volumes:
     - mysqldata:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: pw
-      MYSQL_DATABASE: WorkHourdb
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin
   api-services:
     build: .
     ports:
     - 8080:80
+  sql-migrations:
+    build:
+      context: .
+      dockerfile: Dockerfile.migrations
+    tty: true
+
 
 volumes:
   mysqldata:

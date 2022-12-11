@@ -11,7 +11,7 @@ namespace WerkurenCounterCsharp_api.Models
      public class WorkDay
     {
         public int id{get;set;}
-        public String Name { get; set; }
+        public String? Name { get; set; }
 
         public DateTime StartEvent { get; set; }
         public DateTime EndEvent { get; set; }
