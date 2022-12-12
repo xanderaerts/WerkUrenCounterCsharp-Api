@@ -22,7 +22,6 @@ namespace WerkurenCounterCsharp_api.Controllers
 
         [HttpGet("{id}")]
         public ActionResult getById(int id){
-            var wd = this.workDayList.FirstOrDefault<WorkDay>(t => t.id == id); 
             return Ok();
         }
         

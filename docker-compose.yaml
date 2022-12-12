@@ -2,16 +2,23 @@ version: '3'
 
 services:
   mysqlserver:
-    image: mysql/mysql-server
+    image: mysql
     container_name: mysqlserver
     env_file:
-      - secrets.env
+      - .env
     volumes:
     - mysqldata:/var/lib/mysql
+    ports:
+      - 3306:3306
   api-services:
+    container_name: api-container
     build: .
     ports:
-    - 8080:80
+      - 8080:80
+
+
+
+
   sql-migrations:
     build:
       context: .
@@ -21,3 +28,4 @@ services:
 
 volumes:
   mysqldata:
+
