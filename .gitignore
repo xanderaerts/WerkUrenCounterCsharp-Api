@@ -6,6 +6,7 @@
 *.env
 .vscode
 appsettingappsettings*.json
+Migrations/
 
 
 # User-specific files

@@ -16,13 +16,12 @@ services:
     ports:
       - 8080:80
 
-
-
-
   sql-migrations:
     build:
       context: .
       dockerfile: Dockerfile.migrations
+    volumes:
+      - ./:/App
     tty: true
 
 
