@@ -7,6 +7,8 @@ namespace WerkurenCounterCsharp_api.Repositories
         IEnumerable<WorkDay> getAllWorkDay();
 
         WorkDay getWorkdayById(int id);
+
+        //void addWorkDay(WorkDay )
         
     }
 }

@@ -18,6 +18,8 @@ Console.WriteLine(_connectionString);
 
 builder.Services.AddDbContext<WorkDayContext>(opt => opt.UseMySql(_connectionString,ServerVersion.AutoDetect(_connectionString)));
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

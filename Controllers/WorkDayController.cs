@@ -1,6 +1,10 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using WerkurenCounterCsharp_api.Models;
+using WerkurenCounterCsharp_api.Repositories;
+using WerkurenCounterCsharp_api.DTO;
+using AutoMapper;
+
 
 namespace WerkurenCounterCsharp_api.Controllers
 {
@@ -10,19 +14,25 @@ namespace WerkurenCounterCsharp_api.Controllers
     {
         List<WorkDay> workDayList = new List<WorkDay> ();
 
-        public WorkDayController(){
-            this.workDayList.Add(new WorkDay(){id=1,Name="Xander",StartEvent=new DateTime(),EndEvent=new DateTime(),Action=WorkDayAction.StartDay});
+        private readonly IRepo _repo;
+        private readonly IMapper _map;
+
+        public WorkDayController(IRepo repo,IMapper map){
+           // this.workDayList.Add(new WorkDay(){id=1,Name="Xander",StartEvent=new DateTime(),EndEvent=new DateTime(),Action=WorkDayAction.StartDay});
+
+            this._repo = repo;
+            this._map = map;
 
         }
 
         [HttpGet]
         public ActionResult getAll(){
-            return Ok("test");
+            return Ok(_map.Map<IEnumerable<WorkDayDto>>(this._repo.getAllWorkDay()));
         } 
 
         [HttpGet("{id}")]
         public ActionResult getById(int id){
-            return Ok();
+            return Ok(_map.Map<WorkDayDto>(this._repo.getWorkdayById(id)));
         }
         
     }

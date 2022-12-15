@@ -17,6 +17,7 @@ services:
       - 8080:80
 
   sql-migrations:
+    container_name: sql-migrations
     build:
       context: .
       dockerfile: Dockerfile.migrations
