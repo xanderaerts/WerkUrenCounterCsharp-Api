@@ -4,11 +4,17 @@ namespace WerkurenCounterCsharp_api.Repositories
 {
     public interface IRepo
     {
-        IEnumerable<WorkDay> getAllWorkDay();
+        IEnumerable<WorkDayEvent> getAllWorkDayEvent();
 
-        WorkDay getWorkdayById(int id);
+        WorkDayEvent getWorkDayEventById(int id);
 
-        //void addWorkDay(WorkDay )
+        void addWorkDayEvent(WorkDayEvent wde);
+
+        void updateWorkDayEvent(WorkDayEvent wde);
+
+        void deleteWorkDayEvent(WorkDayEvent wde);
+
+        void SaveDbChanges();
         
     }
 }

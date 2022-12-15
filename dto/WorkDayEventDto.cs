@@ -3,7 +3,7 @@ using WerkurenCounterCsharp_api.Models;
 
 namespace WerkurenCounterCsharp_api.DTO
 {
-    public class WorkDayDto
+    public class WorkDayEventDto
     {
         
         public String? Name { get; set; }
@@ -11,7 +11,7 @@ namespace WerkurenCounterCsharp_api.DTO
         public DateTime StartEvent { get; set; }
         public DateTime EndEvent { get; set; }
 
-        public WorkDayAction Action { get; set; }
+        public WorkDayEventAction Action { get; set; }
 
     }
 }

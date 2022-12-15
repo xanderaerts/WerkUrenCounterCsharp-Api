@@ -16,7 +16,7 @@ builder.Services.AddScoped<IRepo,MysqlRepo>();
 String _connectionString = builder.Configuration["ConnectionString:MySqlConnection"];
 Console.WriteLine(_connectionString);
 
-builder.Services.AddDbContext<WorkDayContext>(opt => opt.UseMySql(_connectionString,ServerVersion.AutoDetect(_connectionString)));
+builder.Services.AddDbContext<WorkDayEventContext>(opt => opt.UseMySql(_connectionString,ServerVersion.AutoDetect(_connectionString)));
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
