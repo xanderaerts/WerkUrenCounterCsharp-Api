@@ -14,6 +14,8 @@ namespace WerkurenCounterCsharp_api.Repositories
 
         void deleteWorkDayEvent(WorkDayEvent wde);
 
+        WorkDayEvent getLatest();
+
         void SaveDbChanges();
         
     }

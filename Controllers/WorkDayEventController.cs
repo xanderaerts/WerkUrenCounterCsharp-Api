@@ -70,6 +70,13 @@ namespace WerkurenCounterCsharp_api.Controllers
             _repo.SaveDbChanges();
             return Ok();
         }
+
+        [HttpGet("latest")]
+        public ActionResult getLatest(){
+            return Ok(_map.Map<WorkDayEventDto>(this._repo.getLatest()));
+
+        }
+
     }
 }
 
