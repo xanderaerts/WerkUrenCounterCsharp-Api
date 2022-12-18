@@ -18,7 +18,6 @@ namespace WerkurenCounterCsharp_api.Controllers
         private readonly IMapper _map;
 
         public WorkDayEventController(IRepo repo,IMapper map){
-           // this.WorkDayEventList.Add(new WorkDayEvent(){id=1,Name="Xander",StartEvent=new DateTime(),EndEvent=new DateTime(),Action=WorkDayEventAction.StartDay});
 
             this._repo = repo;
             this._map = map;
