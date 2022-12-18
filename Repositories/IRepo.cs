@@ -16,6 +16,8 @@ namespace WerkurenCounterCsharp_api.Repositories
 
         WorkDayEvent getLatest();
 
+        IEnumerable<WorkDayEvent> getAllToday();
+
         void SaveDbChanges();
         
     }

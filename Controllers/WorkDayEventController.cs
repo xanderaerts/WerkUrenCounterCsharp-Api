@@ -77,6 +77,11 @@ namespace WerkurenCounterCsharp_api.Controllers
 
         }
 
+        [HttpGet("today")]
+        public ActionResult getToday(){
+            return Ok(_map.Map<IEnumerable<WorkDayEventDto>>(this._repo.getAllToday()));
+        }
+
     }
 }
 

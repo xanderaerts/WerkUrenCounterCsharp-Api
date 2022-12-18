@@ -37,7 +37,28 @@ namespace WerkurenCounterCsharp_api.Repositories
 
         public WorkDayEvent getLatest(){
             return _context.WorkDayEvents.OrderByDescending(x => x.id).FirstOrDefault();
-           // return _context.WorkDayEvents.Last();
+        }
+
+        public IEnumerable<WorkDayEvent> getAllToday(){
+           var result =  _context.WorkDayEvents
+                    .AsEnumerable()  
+                    .Reverse()  
+                    .TakeWhile(r => r.Action != WorkDayEventAction.StartDay)
+                    .ToList();
+
+            var today = DateTime.Today; 
+           WorkDayEvent wde = _context.WorkDayEvents
+           .AsEnumerable()
+           .Reverse()
+           .FirstOrDefault(w => w.Action == WorkDayEventAction.StartDay && w.StartEvent.Date == today);
+
+
+            result.Reverse();
+            result.Insert(0,wde);
+
+            return result;
+
+
         }
 
         public void SaveDbChanges(){
